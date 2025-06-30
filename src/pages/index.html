@@ -71,7 +71,7 @@
                 </button>
             </nav>
 
-            <!-- Botões de Autenticação -->
+<!-- Botões de Autenticação -->
             <div class="flex items-center gap-2">
                 <button id="login-btn" class="text-cyan-700 hover:text-cyan-900 px-4 py-2 transition-colors">Entrar</button>
                 <button id="register-btn" class="bg-cyan-600 hover:bg-cyan-700 text-white px-4 py-2 rounded-lg transition-colors">Cadastrar</button>
@@ -84,6 +84,40 @@
                 </svg>
             </button>
         </div>
+
+             
+<!-- Script -->
+<script>
+  const loginBtn = document.getElementById('login-btn');
+  const closeLogin = document.getElementById('close-login');
+  const loginModal = document.getElementById('login-modal');
+  const loginForm = document.getElementById('login-form');
+  const alertBox = document.getElementById('login-alert');
+
+  loginBtn.onclick = () => loginModal.classList.remove('hidden');
+  closeLogin.onclick = () => {
+    loginModal.classList.add('hidden');
+    alertBox.classList.add('hidden');
+    alertBox.textContent = '';
+    loginForm.reset();
+  };
+
+  loginForm.onsubmit = (e) => {
+    e.preventDefault();
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value.trim();
+
+    if (email === "user@teste.com" && password === "1234") {
+      alertBox.textContent = "Login bem-sucedido!";
+      alertBox.className = "mt-4 text-center text-green-600 text-sm font-medium";
+    } else {
+      alertBox.textContent = "Email ou senha incorretos.";
+      alertBox.className = "mt-4 text-center text-red-600 text-sm font-medium";
+    }
+    alertBox.classList.remove('hidden');
+  };
+</script>
+
 
         <!-- Menu Mobile Expandido -->
         <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-md border-t border-cyan-200">
@@ -135,64 +169,66 @@
                 Protegendo nossa Ilha do Amor através da educação, tecnologia e união da comunidade ludovicense.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button id="start-game-btn" class="bg-cyan-600 hover:bg-cyan-700 text-white px-8 py-4 rounded-lg text-lg font-semibold shadow-lg transition-colors">
-                    <svg class="h-5 w-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1.586a1 1 0 01.707.293l2.414 2.414a1 1 0 00.707.293H15M9 10v4a2 2 0 002 2h2a2 2 0 002-2v-4M9 10V9a2 2 0 012-2h2a2 2 0 012 2v1"/>
-                    </svg>
-                    Começar Jogo
-                </button>
-                <button id="learn-more-btn" class="border border-cyan-200 text-cyan-700 hover:bg-cyan-50 bg-white/80 px-8 py-4 rounded-lg text-lg font-semibold transition-colors">
-                    <svg class="h-5 w-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
-                    </svg>
-                    Aprender Mais
-                </button>
-            </div>
-        </div>
-    </section>
+  <a href="https://angelo-carlos.itch.io/sos-maranho" target="_blank"
+     class="bg-cyan-600 hover:bg-cyan-700 text-white px-8 py-4 rounded-lg text-lg font-semibold shadow-lg transition-colors flex items-center justify-center">
+    <svg class="h-5 w-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1.586a1 1 0 01.707.293l2.414 2.414a1 1 0 00.707.293H15M9 10v4a2 2 0 002 2h2a2 2 0 002-2v-4M9 10V9a2 2 0 012-2h2a2 2 0 012 2v1"/>
+    </svg>
+    Começar Jogo
+  </a>
 
+  <button id="learn-more-btn"
+          class="border border-cyan-200 text-cyan-700 hover:bg-cyan-50 bg-white/80 px-8 py-4 rounded-lg text-lg font-semibold transition-colors">
+    <svg class="h-5 w-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+    </svg>
+    Aprender Mais
+  </button>
+</div>
+</div>
+    </section>
     <!-- Seção do Jogo -->
-    <section id="game" class="py-16 px-4 bg-white/70 backdrop-blur-sm">
-        <div class="container mx-auto">
-            <div class="text-center mb-12">
-                <div class="mb-4 inline-block bg-cyan-100 text-cyan-800 border border-cyan-200 px-4 py-2 rounded-full text-sm font-medium">
-                    Educação Interativa
-                </div>
-                <h3 class="text-3xl font-bold text-cyan-900 mb-4">Simulador das Marés Ludovicenses</h3>
-                <p class="text-cyan-700 max-w-2xl mx-auto">
-                    Aprenda sobre prevenção de alagamentos em São Luís de forma interativa, considerando as características únicas da nossa Ilha do Amor.
-                </p>
-            </div>
+   <section id="game" class="py-16 px-4 bg-white/70 backdrop-blur-sm">
+  <div class="container mx-auto">
+    <div class="text-center mb-12">
+      <div class="mb-4 inline-block bg-cyan-100 text-cyan-800 border border-cyan-200 px-4 py-2 rounded-full text-sm font-medium">
+        Educação Interativa
+      </div>
+      <h3 class="text-3xl font-bold text-cyan-900 mb-4">Simulador das Marés Ludovicenses</h3>
+      <p class="text-cyan-700 max-w-2xl mx-auto">
+        Aprenda sobre prevenção de alagamentos em São Luís de forma interativa, considerando as características únicas da nossa Ilha do Amor.
+      </p>
+    </div>
 
-            <div class="max-w-4xl mx-auto border border-cyan-200 shadow-xl bg-white/90 rounded-lg overflow-hidden">
-                <div class="text-center bg-gradient-to-r from-cyan-50 to-amber-50 p-6">
-                    <div class="flex items-center justify-center gap-2 mb-2">
-                        <svg class="h-6 w-6 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
-                        <h4 class="text-cyan-900 text-xl font-bold">Defesa da Ilha</h4>
-                    </div>
-                    <p class="text-cyan-700">Tome decisões estratégicas para proteger São Luís dos alagamentos</p>
-                </div>
-                <div class="p-6">
-                    <div class="aspect-video bg-gradient-to-br from-cyan-100 via-blue-100 to-amber-100 rounded-lg flex items-center justify-center border-2 border-dashed border-cyan-300 relative overflow-hidden colonial-pattern">
-                        <div class="text-center relative z-10">
-                            <div class="relative mb-4">
-                                <svg class="h-16 w-16 text-cyan-600 mx-auto animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1.586a1 1 0 01.707.293l2.414 2.414a1 1 0 00.707.293H15M9 10v4a2 2 0 002 2h2a2 2 0 002-2v-4M9 10V9a2 2 0 012-2h2a2 2 0 012 2v1"/>
-                                </svg>
-                                <div class="absolute inset-0 border-2 border-cyan-300 rounded-full animate-ondas"></div>
-                            </div>
-                            <p class="text-cyan-700 font-medium mb-4">Jogo Unity WebGL - Cenário de São Luís</p>
-                            <button class="bg-cyan-600 hover:bg-cyan-700 text-white px-6 py-3 rounded-lg font-semibold shadow-lg transition-colors">
-                                Defender a Ilha
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="max-w-4xl mx-auto border border-cyan-200 shadow-xl bg-white/90 rounded-lg overflow-hidden">
+      <div class="text-center bg-gradient-to-r from-cyan-50 to-amber-50 p-6">
+        <div class="flex items-center justify-center gap-2 mb-2">
+          <svg class="h-6 w-6 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+          <h4 class="text-cyan-900 text-xl font-bold">Defesa da Ilha</h4>
         </div>
-    </section>
+        <p class="text-cyan-700 mb-4">Tome decisões estratégicas para proteger São Luís dos alagamentos</p>
+
+        <!-- SLIDE DE IMAGENS -->
+        <div class="overflow-x-auto snap-x snap-mandatory flex gap-4 pb-4 scroll-smooth">
+          <img src="print 1.jpeg" alt="Tela de Login" class="w-full max-w-md rounded-lg shadow-md snap-center shrink-0">
+          <img src="print 2.jpeg" alt="Tela Inicial" class="w-full max-w-md rounded-lg shadow-md snap-center shrink-0">
+          <img src="print 3.jpeg" alt="Tela do Mapa" class="w-full max-w-md rounded-lg shadow-md snap-center shrink-0">
+        </div>
+
+        <!-- BOTÃO ABAIXO DO SLIDE -->
+        <div class="text-center mt-6">
+          <a href="https://angelo-carlos.itch.io/sos-maranho" target="_blank" class="bg-cyan-600 hover:bg-cyan-700 text-white px-6 py-3 rounded-lg font-semibold shadow-lg transition-colors">
+            Defender a Ilha
+          </a>
+        </div>
+      </div>
+    </div>
+</section>
+
 
     <!-- Seção de Recursos -->
     <section id="features" class="py-16 px-4 relative">
